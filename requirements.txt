@@ -1,0 +1,15 @@
+--index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://pypi.org/simple
+
+Flask
+gunicorn
+pandas
+numpy
+scikit-learn
+yfinance
+requests
+beautifulsoup4
+matplotlib
+feedparser
+torch==2.9.1
+transformers==4.44.2
