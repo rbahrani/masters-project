@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <div class="nav-bg"></div>
+  <ul>
+    <li><a href="\">DTSC-691</a></li>
+    <li><a href="\resume">Resume</a></li>
+    <li><a href="\biographical_homepage">Bio</a></li>
+    <li><a href="\other_projects">Other Projects</a></li>
+  </ul>
+</nav>
+<div class="page">
+</div>
+<div class="content-wrapper">
+    <h1>Select a ticker</h1>
+        <form method="POST">
+            <label for="selected_ticker">Choose a ticker for prediction:</label>
+                <select name="selected_ticker" id="selected_ticker">
+                    {% for ticker in list_of_tickers %}
+                        <option value="{{ ticker }}" {% if ticker == selected_ticker %}selected{% endif %}>{{ ticker }}</option>
+                    {% endfor %}
+                </select>
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+</div>

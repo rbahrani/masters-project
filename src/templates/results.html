@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <div class="nav-bg"></div>
+  <ul>
+    <li><a href="\">DTSC-691</a></li>
+    <li><a href="\resume">Resume</a></li>
+    <li><a href="\biographical_homepage">Bio</a></li>
+    <li><a href="\other_projects">Other Projects</a></li>
+  </ul>
+</nav>
+<div class="results-for-query">
+  <h1>Here are the results of your query for: {{ selected_ticker }}:</h1>
+</div>
+<div class="results-content-wrapper">
+    <div class="plot-container">
+        <img src="{{ plot_url_30_days }}" alt="Price chart for {{ selected_ticker }}">
+    </div>
+    <div>
+        <h2>Relevant News</h2>
+            {% for a in articles %}
+                <div class="article">
+                    <a href="{{ a.link }}" target="_blank">
+                        {{ a.title }}
+                    </a>
+                    {% if a.source %}
+                        <div><small>New source: {{ a.source }}</small></div>
+                    {% endif %}
+                    {% if a.published %}
+                        <div><small>Date: {{ a.published }}</small></div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+    <h1>Predicted Market Reaction</h1>
+    <h2>Statistical Summary of Expected Returns</h2>
+    <ul>
+        <li>Average Return: {{ (avg_return * 100) | round(4) }}%</li>
+        <li>5th Percentile for Return: {{ (q05 * 100) | round(4) }}%</li>
+        <li>Median for Return: {{ (q50 * 100) | round(4) }}%</li>
+        <li>95th Percentile for Return: {{ (q95 * 100) | round(4) }}%</li>
+    </ul>
+
+    <h2>Distribution of Predicted Returns</h2>
+    <img src="{{ plot_url }}" alt="Distribution of Predicted Returns" />
+    </div>
+    <div style="margin-bottom: 40px;">Please note that the results shown on this page are only for the statistical analysis purposes
+    and are not meant to serve as investment advice in any shape or form. </div>
+    <div style="height: 30px;"></div>
+</div>
