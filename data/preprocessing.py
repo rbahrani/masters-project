@@ -127,7 +127,7 @@ def save_df_to_csv(df, filename):
 
 if __name__ == "__main__":
     stocks_df = pd.read_csv('C:/Users/rosie/dtsc-691/data/stocks.csv', encoding='utf-8')
-    print_most_common_occurance(stocks_df)
+    # print_most_common_occurance(stocks_df)
     stocks_df = remove_rows_with_missing_values(stocks_df)
     stocks_df = preprocess_headline_strings(stocks_df)
     stocks_df = fix_date_formats(stocks_df)

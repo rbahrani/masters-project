@@ -99,7 +99,7 @@ def get_statistical_analysis_on_raw_data(df):
     print("======================")
 
     # Median, Min and Max headline lengths
-    print("Max headline length is: ", df['headline_length'].median())
+    print("Median headline length is: ", df['headline_length'].median())
     print("Max headline length is: ", df['headline_length'].max())
     print("Min headline length is: ", df['headline_length'].min())
     print("======================")

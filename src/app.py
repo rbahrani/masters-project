@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from transformers import AutoTokenizer, AutoModel
-from scrapper import fetch_recent_news_for_ticker
+from .scraper import fetch_recent_news_for_ticker
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
