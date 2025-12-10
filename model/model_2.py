@@ -47,7 +47,7 @@ print("Size of training data:", len(train_df))
 print("Size of validation data:", len(val_df))
 print("Size of test data:", len(test_df))
 
-# getting the pre trained model
+# getting the pre-trained model
 pre_trained_model = "ProsusAI/finbert"
 tokenizer = AutoTokenizer.from_pretrained(pre_trained_model)
 
@@ -139,7 +139,7 @@ class FinBERT_UnFrozen_Regressor(nn.Module):
             token_type_ids=token_type_ids
         )
 
-        # In BERT models, the first token is the CLS embedding which is designed to be
+        # In BERT models, the first token is the CLS embedding, which is designed to be
         # the sentence-level representation.
         cls = outputs.last_hidden_state[:, 0, :]
 

@@ -107,7 +107,7 @@ class FinBERT_Frozen_Regressor(nn.Module):
             param.requires_grad = False
 
         # note: dropout is used to avoid overfitting
-        # in this regessor, we take the n-dimensional vector from FinBERT and convert it
+        # in this regressor, we take the n-dimensional vector from FinBERT and convert it
         # to a vector of size 128. Then, it is passed to a ReLU layer and finally, to a single
         # output layer (aka, predicted daily return).
         self.regressor = nn.Sequential(
@@ -124,7 +124,7 @@ class FinBERT_Frozen_Regressor(nn.Module):
             token_type_ids=token_type_ids
         )
 
-        # In BERT models, the first token is the CLS embedding which is designed to be
+        # In BERT models, the first token is the CLS embedding, which is designed to be
         # the sentence-level representation.
         cls = outputs.last_hidden_state[:, 0, :]
 
@@ -230,7 +230,7 @@ def evaluate(model, dataloader, device):
     all_predictions = np.concatenate(all_predictions)
     all_labels = np.concatenate(all_labels)
 
-    # calculate the mean squared error and mean absolute error
+    # calculate the mean-squared error and mean absolute error
     mse = total_loss / len(dataloader.dataset)
     mae = mean_absolute_error(all_labels, all_predictions)
 

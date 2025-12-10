@@ -43,7 +43,7 @@ def download_prices_slow_run(tickers, start, end, batch_size=5, max_retries=6, b
                 # print attempt number
                 print("Attempt: ", attempt+1)
 
-                # most important: downloda data from yfinance API
+                # most important: download data from yfinance API
                 current_res = yf.download(batch, start=start, end=end, group_by="ticker", auto_adjust=False, progress=False, threads=False)
 
                 # if data is empty, print message
